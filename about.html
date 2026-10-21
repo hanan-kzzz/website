@@ -78,106 +78,222 @@
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </span>
         </a>
-        <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="icon-hamburger">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </span>
+          <span class="icon-close">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-nav-drawer" id="mobileDrawer">
-    <nav class="mobile-nav-links">
-      <a href="index.html" class="nav-link" data-i18n="navHome">Home</a>
-      <a href="about.html" class="nav-link active" data-i18n="navAbout">About</a>
-      <a href="products.html" class="nav-link" data-i18n="navProducts">Products</a>
-      <a href="industries.html" class="nav-link" data-i18n="navIndustries">Industries</a>
-      <a href="projects.html" class="nav-link" data-i18n="navProjects">Projects</a>
-      <a href="manufacturing.html" class="nav-link" data-i18n="navManufacturing">Manufacturing</a>
-      <a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a>
-    </nav>
-    <div class="mobile-nav-cta">
-      <a href="quote.html" class="btn-primary" data-i18n="requestQuoteNav">Request a Quote</a>
-    </div>
-  </div>
+    <!-- Mobile Navigation Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobileBackdrop" aria-hidden="true"></div>
 
-  <!-- Page Hero Banner -->
+  <!-- Mobile Drawer Menu -->
+  <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="drawer-brand" aria-label="Nahas Malee - Gulf Fiber and Metal Company Limited">
+        <img src="images/logo-nahas-malee.jpg" alt="Nahas Malee - Gulf Fiber and Metal Logo">
+        <div class="brand-info">
+          <span class="brand-name" data-i18n="brandName">NAHAS MALEE</span>
+          <span class="brand-tagline" data-i18n="brandSub">Gulf Fiber &amp; Metal Co.</span>
+        </div>
+      </a>
+      <button type="button" class="drawer-close-btn" id="mobileDrawerClose" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Language Selector inside Drawer -->
+    <div class="drawer-lang-strip">
+      <span class="drawer-lang-label" data-i18n="selectLanguage">Language</span>
+      <div class="lang-badge">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <span style="color: #CBD5E1;">|</span>
+        <button type="button" class="lang-btn" data-lang="ar">عربي</button>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-item">
+        <span class="item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </span>
+        <span class="item-text" data-i18n="navHome">Home</span>
+        <span class="item-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </a>
+
+      <a href="about.html" class="mobile-nav-item active">
+        <span class="item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        </span>
+        <span class="item-text" data-i18n="navAbout">About Us</span>
+        <span class="item-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </a>
+
+      <a href="products.html" class="mobile-nav-item">
+        <span class="item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        </span>
+        <span class="item-text" data-i18n="navProducts">Products &amp; Solutions</span>
+        <span class="item-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </a>
+
+      <a href="industries.html" class="mobile-nav-item">
+        <span class="item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </span>
+        <span class="item-text" data-i18n="navIndustries">Industries</span>
+        <span class="item-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </a>
+
+      <a href="projects.html" class="mobile-nav-item">
+        <span class="item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        </span>
+        <span class="item-text" data-i18n="navProjects">Projects</span>
+        <span class="item-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </a>
+
+      <a href="manufacturing.html" class="mobile-nav-item">
+        <span class="item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </span>
+        <span class="item-text" data-i18n="navManufacturing">Manufacturing</span>
+        <span class="item-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </a>
+
+      <a href="contact.html" class="mobile-nav-item">
+        <span class="item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </span>
+        <span class="item-text" data-i18n="navContact">Contact Us</span>
+        <span class="item-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </a>
+    </nav>
+
+    <!-- Prominent Quote CTA -->
+    <div class="drawer-cta-wrapper">
+      <a href="quote.html" class="drawer-quote-btn">
+        <span data-i18n="requestQuoteDrawer">Request an Engineering Quote</span>
+        <span class="arrow-circle">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- Quick Direct Contact Links -->
+    <div class="drawer-contact-footer">
+      <div class="drawer-contact-title" data-i18n="quickContact">Direct Inquiries</div>
+      <div class="drawer-contact-grid">
+        <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" class="drawer-contact-card whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="tel:+966500000000" class="drawer-contact-card phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span data-i18n="directCall">Call Directly</span>
+        </a>
+      </div>
+      <div class="drawer-location-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span data-i18n="factoryLocation">Al Farazdaq St, Riyadh, Saudi Arabia</span>
+      </div>
+    </div>
+  </aside>
+
+    <!-- Page Hero Banner -->
   <div class="page-hero page-hero-about">
     <div class="container">
-      <div class="page-hero-header">
+      <div class="page-hero-header reveal-up">
         <div class="hero-breadcrumb">
           <a href="index.html">Home</a>
           <span class="breadcrumb-sep">/</span>
           <span class="breadcrumb-current">Corporate Profile</span>
         </div>
         <h1>
-          Engineering Next-Generation <em>GRP Architectural Solutions</em>
+          Engineering Next-Generation <span class="hero-gradient-text">GRP Architectural Solutions</span>
         </h1>
         <p class="section-lead">
           Gulf Fiber and Metal Company Limited (Nahas Malee) specializes in high-precision Glass Reinforced Plastic (GRP) envelopes, structural pillar covers, and custom composite fabrication engineered for Saudi Arabia's demanding architectural sector.
         </p>
+      </div>
+    </div>
+  </div>
 
-        <!-- Technical Trust Highlights -->
-        <div class="hero-trust-chips">
-          <div class="trust-chip">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>SASO &amp; ASTM Standards</span>
+  <!-- Executive Floating Metrics Strip -->
+  <div class="metrics-strip-wrapper">
+    <div class="container">
+      <div class="metrics-card-floating reveal-up">
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <span class="metric-val">15+</span>
+            <span class="metric-label">Years Engineering Experience</span>
+            <span class="metric-sub">Proven Track Record in KSA</span>
           </div>
-          <div class="trust-chip">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            <span>55°C Desert Thermal Stability</span>
+          <div class="metric-item">
+            <div class="metric-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+            </div>
+            <span class="metric-val">75%</span>
+            <span class="metric-label">Lighter Than Concrete &amp; Stone</span>
+            <span class="metric-sub">Substructure Cost Reductions</span>
           </div>
-          <div class="trust-chip">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
-            <span>Class A Fire Retardancy</span>
+          <div class="metric-item">
+            <div class="metric-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </div>
+            <span class="metric-val">55&deg;C</span>
+            <span class="metric-label">Desert Thermal Tolerance</span>
+            <span class="metric-sub">Zero UV Degradation or Chalking</span>
           </div>
-          <div class="trust-chip">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-            <span>In-House Mould Tooling</span>
+          <div class="metric-item">
+            <div class="metric-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <span class="metric-val">100%</span>
+            <span class="metric-label">Salinity &amp; Chemical Immunity</span>
+            <span class="metric-sub">Marine &amp; Industrial Certified</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Metrics Strip Centered with Dividers -->
-  <div class="metrics-strip">
-    <div class="container metrics-grid">
-      <div class="metric-item">
-        <span class="metric-val">15+</span>
-        <span class="metric-label">Years Engineering Experience</span>
-        <span class="metric-sub">Proven Track Record in KSA</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-val">75%</span>
-        <span class="metric-label">Lighter Than Concrete &amp; Stone</span>
-        <span class="metric-sub">Substructure Cost Reductions</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-val">55°C</span>
-        <span class="metric-label">Desert Thermal Tolerance</span>
-        <span class="metric-sub">Zero UV Degradation or Chalking</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-val">100%</span>
-        <span class="metric-label">Salinity &amp; Chemical Immunity</span>
-        <span class="metric-sub">Marine &amp; Industrial Certified</span>
-      </div>
-    </div>
-  </div>
-
   <!-- Main Content Section: Company Overview -->
-  <section class="section">
+  <section class="section about-overview-section">
     <div class="container">
-      <div class="grid-2" style="align-items: start; gap: 3rem;">
+      <div class="grid-2 reveal-up" style="align-items: start; gap: 3.5rem;">
         <div>
           <span class="section-eyebrow">Company Overview</span>
           <h2 class="section-title" style="margin-bottom: 1.25rem;">A Focused B2B Composite Fabricator in Riyadh</h2>
-          <p style="font-size: 1.05rem; line-height: 1.7; color: #334155; margin-bottom: 1.25rem;">
+          <p class="about-lead-text">
             Gulf Fiber and Metal Company Limited operates from its corporate facility located on <strong>Al Farazdaq Street in Riyadh, Saudi Arabia</strong>. We specialize in the design, tooling, moulding, and custom fabrication of high-performance Glass Reinforced Plastic (GRP) products tailored to the demanding engineering standards of the Kingdom's construction sector.
           </p>
-          <p style="color: #64748B; line-height: 1.65; margin-bottom: 1.5rem;">
-            Composite materials play a transformative role in contemporary architecture and municipal civil engineering. By delivering material systems that are up to 75% lighter than precast concrete or natural stone, completely impervious to coastal salinity and chemical oxidation, and capable of enduring continuous 55°C desert surface temperatures, Gulf Fiber and Metal delivers long-term durability with minimal lifecycle maintenance.
+          <p class="about-body-text">
+            Composite materials play a transformative role in contemporary architecture and municipal civil engineering. By delivering material systems that are up to 75% lighter than precast concrete or natural stone, completely impervious to coastal salinity and chemical oxidation, and capable of enduring continuous 55&deg;C desert surface temperatures, Gulf Fiber and Metal delivers long-term durability with minimal lifecycle maintenance.
           </p>
 
           <!-- Feature Checklist -->
@@ -214,7 +330,7 @@
           </div>
 
           <!-- Data Governance Card -->
-          <div class="governance-card">
+          <div class="governance-card reveal-scale">
             <div class="governance-card-header">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
               <h4 class="governance-card-title">Data Governance &amp; Integrity Policy</h4>
@@ -234,32 +350,40 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; color: #38BDF8;"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                 Architectural Cladding &amp; 3D Facades
               </span>
-              <span class="showcase-subtag">Commercial Envelopes • Riyadh</span>
+              <span class="showcase-subtag">Commercial Envelopes &bull; Riyadh</span>
             </div>
           </div>
 
-          <div class="philosophy-grid">
-            <div class="philosophy-card">
+          <div class="philosophy-grid stagger-grid">
+            <div class="philosophy-card reveal-up">
               <div class="philosophy-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
               </div>
               <div class="philosophy-content">
-                <h4>Our Manufacturing Philosophy</h4>
+                <h4>Manufacturing Philosophy</h4>
                 <p>
-                  We approach composite manufacturing as a rigorous discipline combining structural fiber orientation, resin formulation chemistry, and precision mould tooling. Every component is engineered to provide predictable tensile, flexural, and fire-resistant behavior.
+                  Rigorous composite discipline combining structural fiber orientation, resin chemistry, and precision mould tooling for predictable tensile and fire performance.
                 </p>
+                <ul class="philosophy-bullets">
+                  <li><span>Custom parametric tooling &amp; CNC plugs</span></li>
+                  <li><span>Controlled 40:60 glass-to-resin structural ratio</span></li>
+                </ul>
               </div>
             </div>
 
-            <div class="philosophy-card">
-              <div class="philosophy-icon">
+            <div class="philosophy-card reveal-up">
+              <div class="philosophy-icon" style="background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.2); color: #059669;">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
               </div>
               <div class="philosophy-content">
-                <h4>Quality Assurance &amp; Testing Protocol</h4>
+                <h4>QA &amp; Testing Protocol</h4>
                 <p>
-                  From raw material resin viscosity audits to ultrasound laminate thickness measurement, Barcol hardness indentation testing, and post-cure thermal conditioning, our inspection workflow ensures compliance with project specifications prior to site dispatch.
+                  Comprehensive inspection workflow verifying resin viscosity, ultrasound thickness, Barcol hardness, and post-cure thermal conditioning before site delivery.
                 </p>
+                <ul class="philosophy-bullets">
+                  <li><span>Ultrasound laminate thickness verification</span></li>
+                  <li><span>Barcol hardness indentation lab audits</span></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -277,8 +401,8 @@
         <p class="section-lead">Why tier-1 contractors, architects, and consultants specify Glass Reinforced Plastic over traditional building materials.</p>
       </div>
 
-      <div class="advantage-grid">
-        <div class="advantage-card">
+      <div class="advantage-grid stagger-grid">
+        <div class="advantage-card reveal-up">
           <div class="advantage-card-top">
             <div class="advantage-card-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="3" x2="12" y2="21"></line><path d="M18 7l4 4-4 4"></path><path d="M6 17l-4-4 4-4"></path></svg>
@@ -290,55 +414,59 @@
             Slashes dead loads on superstructures and foundations. Eliminates heavy steel substructures and permits installation using smaller mobile cranes, drastically accelerating project timelines.
           </p>
           <div class="advantage-metric-pill">
-            <span>Dead Load:</span> <strong>15–20 kg/m²</strong> vs 120 kg/m² Precast
+            <span class="metric-pill-label">Dead Load</span>
+            <span class="metric-pill-val"><strong>15–20 kg/m²</strong> vs 120 kg/m² Precast</span>
           </div>
         </div>
 
-        <div class="advantage-card">
+        <div class="advantage-card reveal-up">
           <div class="advantage-card-top">
-            <div class="advantage-card-icon">
+            <div class="advantage-card-icon" style="background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.2); color: #059669;">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
-            <span class="advantage-tag">Corrosion Proof</span>
+            <span class="advantage-tag" style="background: #ECFDF5; border-color: #A7F3D0; color: #065F46;">Corrosion Proof</span>
           </div>
           <h3 class="advantage-title">100% Saline &amp; Chemical Immunity</h3>
           <p class="advantage-desc">
             Completely unaffected by marine coastal salinity, atmospheric sulfur, or chemical washdowns. Zero spalling, rebar oxidation, or salt crystallization issues that plague conventional precast concrete.
           </p>
           <div class="advantage-metric-pill">
-            <span>Durability:</span> <strong>ASTM B117 &amp; ISO 12944</strong> Certified
+            <span class="metric-pill-label">Immunity</span>
+            <span class="metric-pill-val"><strong>ASTM B117 &amp; ISO 12944</strong> Certified</span>
           </div>
         </div>
 
-        <div class="advantage-card">
+        <div class="advantage-card reveal-up">
           <div class="advantage-card-top">
-            <div class="advantage-card-icon">
+            <div class="advantage-card-icon" style="background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.2); color: #6366F1;">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
             </div>
-            <span class="advantage-tag">Parametric 3D</span>
+            <span class="advantage-tag" style="background: #EEF2FF; border-color: #C7D2FE; color: #4338CA;">Parametric 3D</span>
           </div>
           <h3 class="advantage-title">Infinite Architectural Freedom</h3>
           <p class="advantage-desc">
             Moulded seamlessly into fluid compound curves, geometric origami panels, fluted column wraps, and traditional Najdi mashrabiya lattice patterns with zero visible joints.
           </p>
           <div class="advantage-metric-pill">
-            <span>Geometry:</span> <strong>Double-Curved &amp; 3D Parametric</strong>
+            <span class="metric-pill-label">Formability</span>
+            <span class="metric-pill-val"><strong>Double-Curved &amp; 3D Parametric</strong></span>
           </div>
         </div>
 
-        <div class="advantage-card">
+        <div class="advantage-card reveal-up">
           <div class="advantage-card-top">
-            <div class="advantage-card-icon">
+            <div class="advantage-card-icon" style="background: rgba(234, 88, 12, 0.08); border-color: rgba(234, 88, 12, 0.2); color: #EA580C;">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
             </div>
-            <span class="advantage-tag">Tested Fire Safety</span>
+            <span class="advantage-tag" style="background: #FFF7ED; border-color: #FED7AA; color: #C2410C;">Tested Fire Safety</span>
           </div>
           <h3 class="advantage-title">Class A Fire Retardancy</h3>
           <p class="advantage-desc">
             Formulated with specialized alumina trihydrate (ATH) flame-retardant resins conforming to ASTM E84 Class 1 and Saudi Civil Defense safety guidelines with low smoke toxicity emissions.
           </p>
           <div class="advantage-metric-pill">
-            <span>Fire Safety:</span> <strong>ASTM E84 Class 1 / UL 723</strong>
+            <span class="metric-pill-label">Compliance</span>
+            <span class="metric-pill-val"><strong>ASTM E84 Class 1 / UL 723</strong></span>
           </div>
         </div>
       </div>
@@ -351,12 +479,12 @@
       <div class="section-header text-center">
         <span class="section-eyebrow">Strategic Direction</span>
         <h2 class="section-title">Mission, Vision &amp; Core Values</h2>
-        <p class="section-lead">Proposed framework aligned with the Kingdom’s industrial localization goals (Awaiting final client adoption).</p>
+        <p class="section-lead">Proposed framework aligned with the Kingdom&rsquo;s industrial localization goals (Awaiting final client adoption).</p>
       </div>
 
-      <div class="grid-3">
+      <div class="grid-3 stagger-grid">
         <!-- Mission Card -->
-        <div class="value-card value-card-mission">
+        <div class="value-card reveal-up value-card-mission">
           <div class="value-card-header">
             <div class="value-card-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
@@ -375,7 +503,7 @@
         </div>
 
         <!-- Vision Card -->
-        <div class="value-card value-card-vision">
+        <div class="value-card reveal-up value-card-vision">
           <div class="value-card-header">
             <div class="value-card-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
@@ -394,7 +522,7 @@
         </div>
 
         <!-- Quality Commitment Card -->
-        <div class="value-card value-card-quality">
+        <div class="value-card reveal-up value-card-quality">
           <div class="value-card-header">
             <div class="value-card-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
@@ -418,28 +546,28 @@
   <!-- Physical Verification Callout (Office Ribbon) -->
   <section class="section" style="padding-top: 0;">
     <div class="container">
-      <div class="office-ribbon">
+      <div class="office-ribbon reveal-scale">
         <div class="office-ribbon-accent"></div>
         <div class="office-ribbon-pattern"></div>
         <div class="office-ribbon-content">
           <div class="office-ribbon-info">
             <span class="badge badge-verified office-ribbon-badge">
               <span class="pulse-dot"></span>
-              Verified Corporate Listing
+              Verified Corporate Listing &bull; Riyadh Head Office &amp; Plant
             </span>
             <h2 class="office-ribbon-title">Physical Location on Al Farazdaq Street, Riyadh</h2>
             <div class="office-ribbon-details">
               <div class="office-ribbon-detail-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 <span>Al Farazdaq Street, Riyadh, Kingdom of Saudi Arabia</span>
               </div>
               <div class="office-ribbon-detail-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <span>Sun – Thu: 8:00 AM – 5:30 PM (Direct Technical Reviews)</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Sun &ndash; Thu: 8:00 AM &ndash; 5:30 PM (Direct Technical Reviews)</span>
               </div>
               <div class="office-ribbon-detail-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                <span>CAD / BIM Shop Drawings &amp; Material Swatches Available</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>CAD / BIM Shop Drawings &amp; Physical Material Swatches Available</span>
               </div>
             </div>
           </div>
@@ -449,9 +577,9 @@
               <span>View on Google Maps</span>
             </a>
             <a href="contact.html" class="office-ribbon-btn office-ribbon-btn-primary">
-              <span>Contact Riyadh Team</span>
+              <span>Connect with Riyadh Desk</span>
               <span class="office-ribbon-btn-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </span>
             </a>
           </div>

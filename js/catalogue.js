@@ -113,8 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    setTimeout(() => { if (typeof initScrollAnimations === "function") initScrollAnimations(); }, 50);
     catalogueContainer.innerHTML = filtered.map(prod => `
-      <article class="product-card" data-id="${prod.id}">
+      <article class="product-card reveal-up" data-id="${prod.id}">
         <div class="product-img-wrap">
           <img src="${prod.image}" alt="${isAr ? prod.nameAr : prod.name}" loading="lazy">
           <div class="product-img-overlay"></div>

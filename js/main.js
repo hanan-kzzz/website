@@ -4,28 +4,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Navigation Drawer
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-
-  if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.toggle('open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close on navigation link click
-    mobileDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('open');
-        mobileToggle.setAttribute('aria-expanded', false);
-      });
-    });
-  }
+  // Mobile Navigation Drawer System
+  initMobileNavDrawer();
 
   // Active page detection
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(link => {
+  document.querySelectorAll('.nav-link, .mobile-nav-item').forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.classList.add('active');
@@ -52,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Floating Action Buttons (WhatsApp, Phone, RFQ, Back to Top)
   initFloatingActions();
+  initMetricCounters();
+  initScrollAnimations();
 });
 
 // Floating Action Buttons System
@@ -175,4 +161,197 @@ function showToast(message, type = 'info') {
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
   }, 4000);
+}
+
+
+// Animated Counting Numbers for Metrics Strip
+function initMetricCounters() {
+  const metricValues = document.querySelectorAll('.metric-val');
+  if (!metricValues.length) return;
+
+  function easeOutExpo(x) {
+    return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+  }
+
+  function startCounter(el) {
+    if (el.__hasCounted) return;
+    el.__hasCounted = true;
+
+    const rawText = el.getAttribute('data-original-val') || el.textContent.trim();
+    const match = rawText.match(/^([0-9]+)(.*)$/);
+    if (!match) return; // e.g. "Class A" remains text
+
+    const targetNum = parseInt(match[1], 10);
+    const suffix = match[2] || '';
+    const duration = 1800; // 1.8s smooth count
+    const startTime = performance.now();
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.round(targetNum * easeOutExpo(progress));
+
+      el.textContent = `${current}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = `${targetNum}${suffix}`;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Pre-save original values so resets or re-triggers don't lose data
+  metricValues.forEach(item => {
+    item.setAttribute('data-original-val', item.textContent.trim());
+  });
+
+  const containers = document.querySelectorAll('.metrics-strip');
+  const observeTargets = containers.length ? containers : document.querySelectorAll('.metrics-grid');
+
+  if ('IntersectionObserver' in window && observeTargets.length) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const items = entry.target.querySelectorAll('.metric-val');
+          items.forEach((item, idx) => {
+            const raw = item.getAttribute('data-original-val');
+            const m = raw.match(/^([0-9]+)(.*)$/);
+            if (m) {
+              item.textContent = `0${m[2] || ''}`;
+            }
+            setTimeout(() => {
+              startCounter(item);
+            }, idx * 120);
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observeTargets.forEach(el => observer.observe(el));
+  } else {
+    metricValues.forEach(el => startCounter(el));
+  }
+}
+
+// Universal Scroll Reveal Animations for Sections & Cards
+function initScrollAnimations() {
+  const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right');
+  if (!revealElements.length) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+  }
+}
+
+// Mobile Navigation Drawer Controller
+function initMobileNavDrawer() {
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  let mobileBackdrop = document.getElementById('mobileBackdrop');
+  const mobileDrawerClose = document.getElementById('mobileDrawerClose');
+
+  // If backdrop doesn't exist statically in HTML, inject dynamically
+  if (!mobileBackdrop) {
+    mobileBackdrop = document.createElement('div');
+    mobileBackdrop.id = 'mobileBackdrop';
+    mobileBackdrop.className = 'mobile-nav-backdrop';
+    mobileBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(mobileBackdrop);
+  }
+
+  function openDrawer() {
+    if (mobileDrawer) {
+      mobileDrawer.classList.add('open');
+      mobileDrawer.setAttribute('aria-hidden', 'false');
+    }
+    if (mobileBackdrop) {
+      mobileBackdrop.classList.add('active');
+      mobileBackdrop.setAttribute('aria-hidden', 'false');
+    }
+    if (mobileToggle) {
+      mobileToggle.classList.add('active');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+    }
+    document.body.classList.add('drawer-open');
+  }
+
+  function closeDrawer() {
+    if (mobileDrawer) {
+      mobileDrawer.classList.remove('open');
+      mobileDrawer.setAttribute('aria-hidden', 'true');
+    }
+    if (mobileBackdrop) {
+      mobileBackdrop.classList.remove('active');
+      mobileBackdrop.setAttribute('aria-hidden', 'true');
+    }
+    if (mobileToggle) {
+      mobileToggle.classList.remove('active');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    }
+    document.body.classList.remove('drawer-open');
+  }
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  }
+
+  if (mobileDrawerClose) {
+    mobileDrawerClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
+    });
+  }
+
+  if (mobileBackdrop) {
+    mobileBackdrop.addEventListener('click', closeDrawer);
+  }
+
+  // Close drawer on clicking any navigation link inside it
+  if (mobileDrawer) {
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+  }
+
+  // Close drawer on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('drawer-open')) {
+      closeDrawer();
+    }
+  });
+
+  // Close drawer if resized to desktop viewport (> 920px)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 920 && document.body.classList.contains('drawer-open')) {
+      closeDrawer();
+    }
+  });
 }

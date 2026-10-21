@@ -1,0 +1,1195 @@
+/**
+ * Gulf Fiber and Metal Company Limited
+ * Advanced Engineering Product Detail UI/UX Stylesheet
+ * High-performance composite specification portal & interactive viewer
+ */
+
+/* ==========================================================================
+   1. BREADCRUMBS & TOP BAR
+   ========================================================================== */
+.pdp-breadcrumb-bar {
+  background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+  border-bottom: 1px solid #E2E8F0;
+  padding: 0.85rem 0;
+  font-size: 0.8125rem;
+}
+
+.pdp-breadcrumb-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pdp-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748B;
+  flex-wrap: wrap;
+}
+
+.pdp-breadcrumbs a {
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.15s ease;
+}
+
+.pdp-breadcrumbs a:hover {
+  color: #0284C7;
+}
+
+.pdp-breadcrumb-sep {
+  color: #CBD5E1;
+  font-size: 0.75rem;
+}
+
+.pdp-breadcrumb-current {
+  color: #0F172A;
+  font-weight: 600;
+  background: #E2E8F0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pdp-back-catalog {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #0369A1;
+  background: #E0F2FE;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #BAE6FD;
+}
+
+.pdp-back-catalog:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+  transform: translateX(-2px);
+  box-shadow: 0 4px 12px -2px rgba(2, 132, 199, 0.25);
+}
+
+[dir="rtl"] .pdp-back-catalog:hover {
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   2. HERO HEADER & QUICK ACTION TOOLBAR
+   ========================================================================== */
+.pdp-hero-header {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 2rem 0 1.75rem 0;
+  position: relative;
+}
+
+.pdp-hero-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pdp-hero-left {
+  flex: 1;
+  min-width: 320px;
+}
+
+.pdp-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.pdp-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #EFF6FF;
+  color: #1D4ED8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #BFDBFE;
+}
+
+.pdp-badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+
+.pdp-badge-status.status-verified {
+  background: #ECFDF5;
+  color: #065F46;
+  border-color: #A7F3D0;
+}
+
+.pdp-badge-status.status-proposed {
+  background: #FFFBEB;
+  color: #92400E;
+  border-color: #FDE68A;
+}
+
+.pdp-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+.status-proposed .pdp-pulse-dot {
+  background-color: #F59E0B;
+  box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  animation: pulseAmber 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes pulseAmber {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.pdp-sku-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  color: #475569;
+  background: #F1F5F9;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+}
+
+.pdp-hero-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+.pdp-hero-lead {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+  max-width: 780px;
+}
+
+/* Quick Actions Toolbar */
+.pdp-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+.btn-pdp-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-pdp-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.45);
+  color: #FFFFFF;
+}
+
+.btn-pdp-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #FFFFFF;
+  color: #1E293B;
+  padding: 0.7rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #CBD5E1;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-pdp-outline:hover {
+  background: #F8FAFC;
+  border-color: #94A3B8;
+  color: #0284C7;
+  transform: translateY(-1px);
+}
+
+.btn-pdp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.btn-pdp-icon:hover {
+  background: #F1F5F9;
+  color: #0284C7;
+  border-color: #94A3B8;
+  transform: scale(1.06);
+}
+
+/* Tooltip for icon buttons */
+.btn-pdp-icon[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0F172A;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.15s ease;
+  z-index: 50;
+}
+
+.btn-pdp-icon:hover[data-tooltip]::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: -38px;
+}
+
+/* ==========================================================================
+   3. MAIN WORKSPACE GRID & MEDIA SHOWCASE
+   ========================================================================== */
+.pdp-main-section {
+  padding: 2.25rem 0 4rem 0;
+  background-color: #F8FAFC;
+}
+
+.pdp-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .pdp-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Product Media Showcase Card */
+.pdp-media-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.pdp-media-card:hover {
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.1);
+}
+
+.pdp-media-viewer {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  background: #F1F5F9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+}
+
+@media (max-width: 768px) {
+  .pdp-media-viewer {
+    height: 320px;
+  }
+}
+
+.pdp-media-viewer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.pdp-media-viewer:hover img {
+  transform: scale(1.03);
+}
+
+/* View Mode Switcher Overlay */
+.pdp-view-switcher {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 0.3rem;
+  border-radius: 9999px;
+  gap: 0.25rem;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[dir="rtl"] .pdp-view-switcher {
+  left: auto;
+  right: 1rem;
+}
+
+.pdp-view-tab {
+  background: transparent;
+  color: #E2E8F0;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.pdp-view-tab.active {
+  background: #FFFFFF;
+  color: #0F172A;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Zoom Overlay Pill */
+.pdp-zoom-badge {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 10;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[dir="rtl"] .pdp-zoom-badge {
+  right: auto;
+  left: 1rem;
+}
+
+/* Certification Strip */
+.pdp-cert-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  padding: 0.85rem 1rem;
+  gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .pdp-cert-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pdp-cert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.pdp-cert-item svg {
+  color: #0284C7;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* Key Metrics 4-Box Grid */
+.pdp-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .pdp-metric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pdp-metric-box {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.pdp-metric-box:hover {
+  transform: translateY(-3px);
+  border-color: #BAE6FD;
+  box-shadow: 0 6px 16px -2px rgba(2, 132, 199, 0.12);
+}
+
+.pdp-metric-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #EFF6FF;
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.pdp-metric-value {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+.pdp-metric-label {
+  font-size: 0.7rem;
+  color: #64748B;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* PDP Modern Card Styles */
+.pdp-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.pdp-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.pdp-card-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pdp-card-title svg {
+  color: #0284C7;
+}
+
+.pdp-lead-text {
+  font-size: 0.9375rem;
+  color: #334155;
+  line-height: 1.7;
+}
+
+/* Applications Checklist */
+.pdp-apps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+.pdp-app-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9375rem;
+  color: #1E293B;
+  padding: 0.65rem 0.85rem;
+  background: #F8FAFC;
+  border-radius: 8px;
+  border: 1px solid #F1F5F9;
+  transition: all 0.2s ease;
+}
+
+.pdp-app-item:hover {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .pdp-app-item:hover {
+  transform: translateX(-4px);
+}
+
+.pdp-app-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ECFDF5;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pdp-app-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================================================
+   4. INTERACTIVE SPEC TABS & TECHNICAL ENGINE
+   ========================================================================== */
+.pdp-spec-workspace {
+  position: relative;
+}
+
+/* Tab Navigation Segmented Bar */
+.pdp-tabs-nav {
+  display: flex;
+  background: #E2E8F0;
+  padding: 0.35rem;
+  border-radius: 12px;
+  gap: 0.3rem;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+}
+
+.pdp-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #475569;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.pdp-tab-btn:hover {
+  color: #0F172A;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.pdp-tab-btn.active {
+  background: #FFFFFF;
+  color: #0369A1;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pdp-tab-pane {
+  display: none;
+  animation: fadeInPane 0.25s ease;
+}
+
+.pdp-tab-pane.active {
+  display: block;
+}
+
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modern Specs Table */
+.pdp-table-container {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  margin-bottom: 1.5rem;
+}
+
+.pdp-table-header {
+  padding: 1.15rem 1.25rem;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pdp-table-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.pdp-table-subtitle {
+  font-size: 0.775rem;
+  color: #64748B;
+  margin-top: 0.15rem;
+}
+
+.btn-copy-specs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #F1F5F9;
+  color: #334155;
+  border: 1px solid #CBD5E1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copy-specs:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  border-color: #94A3B8;
+}
+
+.pdp-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.pdp-specs-table tr {
+  border-bottom: 1px solid #F1F5F9;
+  transition: background-color 0.15s ease;
+}
+
+.pdp-specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.pdp-specs-table tr:hover {
+  background-color: #F8FAFC;
+}
+
+.pdp-specs-table th {
+  padding: 0.85rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  background-color: #F8FAFC;
+  width: 38%;
+  border-right: 1px solid #F1F5F9;
+}
+
+[dir="rtl"] .pdp-specs-table th {
+  text-align: right;
+  border-right: none;
+  border-left: 1px solid #F1F5F9;
+}
+
+.pdp-specs-table td {
+  padding: 0.85rem 1.25rem;
+  color: #0F172A;
+  font-weight: 600;
+}
+
+/* Dimensional & Assembly Details */
+.pdp-section-callout {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.pdp-section-callout h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pdp-section-callout h4 svg {
+  color: #0284C7;
+}
+
+.pdp-section-callout p {
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Surface Finishes Visual Grid */
+.pdp-finishes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .pdp-finishes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pdp-finish-card {
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #FFFFFF;
+  transition: all 0.2s ease;
+}
+
+.pdp-finish-card:hover {
+  border-color: #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+}
+
+.pdp-finish-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.pdp-finish-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #CBD5E1;
+}
+
+.pdp-finish-swatch.swatch-gloss { background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%); }
+.pdp-finish-swatch.swatch-matte { background: #94A3B8; }
+.pdp-finish-swatch.swatch-mica { background: linear-gradient(135deg, #475569 0%, #CBD5E1 50%, #334155 100%); }
+.pdp-finish-swatch.swatch-travertine { background: linear-gradient(135deg, #D4B996 0%, #E8D8C4 100%); }
+
+.pdp-finish-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.pdp-finish-desc {
+  font-size: 0.775rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   5. EXECUTIVE PROCUREMENT ACTION BOX
+   ========================================================================== */
+.pdp-procure-card {
+  background: linear-gradient(135deg, #091523 0%, #0F2942 100%);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  color: #FFFFFF;
+  box-shadow: 0 16px 36px -8px rgba(15, 41, 66, 0.4);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.75rem;
+}
+
+.pdp-procure-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pdp-procure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38BDF8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.85rem;
+}
+
+.pdp-procure-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.pdp-procure-desc {
+  font-size: 0.875rem;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.pdp-procure-trust {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.775rem;
+  color: #CBD5E1;
+}
+
+.pdp-procure-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pdp-procure-trust svg {
+  color: #38BDF8;
+  width: 14px;
+  height: 14px;
+}
+
+.pdp-procure-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .pdp-procure-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn-procure-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.btn-procure-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+.btn-procure-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: #FFFFFF;
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-procure-whatsapp:hover {
+  background: #20BD5A;
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   6. FULLSCREEN LIGHTBOX MODAL
+   ========================================================================== */
+.pdp-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pdp-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pdp-lightbox-inner {
+  position: relative;
+  max-width: 1000px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdp-lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  background: #FFFFFF;
+}
+
+.pdp-lightbox-caption {
+  color: #FFFFFF;
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pdp-lightbox-close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pdp-lightbox-close:hover {
+  background: #EF4444;
+  border-color: #EF4444;
+  transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   7. TOAST NOTIFICATION
+   ========================================================================== */
+.pdp-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 0.85rem 1.4rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 100000;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[dir="rtl"] .pdp-toast {
+  left: auto;
+  right: 2rem;
+}
+
+.pdp-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.pdp-toast-icon {
+  color: #10B981;
+}
+
+/* ==========================================================================
+   8. PRINT & PDF DATASHEET STYLES (@media print)
+   ========================================================================== */
+@media print {
+  /* Hide non-printable navigation, header, footer, floating buttons */
+  .site-header,
+  .site-footer,
+  .floating-actions,
+  .pdp-breadcrumb-bar,
+  .pdp-toolbar,
+  .pdp-view-switcher,
+  .pdp-zoom-badge,
+  .btn-copy-specs,
+  .pdp-tabs-nav,
+  .pdp-procure-card,
+  .section-subtle,
+  .mobile-toggle,
+  .pdp-lightbox,
+  .pdp-toast {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  .pdp-hero-header {
+    border-bottom: 2px solid #0F2942 !important;
+    padding: 0 0 1rem 0 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .pdp-hero-title {
+    font-size: 18pt !important;
+    color: #0F2942 !important;
+  }
+
+  .pdp-grid {
+    display: block !important;
+  }
+
+  .pdp-tab-pane {
+    display: block !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .pdp-table-container, .pdp-card, .pdp-section-callout {
+    border: 1px solid #CBD5E1 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .pdp-media-viewer {
+    height: 280px !important;
+    background: transparent !important;
+  }
+
+  .pdp-media-viewer img {
+    max-height: 280px !important;
+    object-fit: contain !important;
+  }
+}

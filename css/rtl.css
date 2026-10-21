@@ -38,9 +38,9 @@
 }
 
 [dir="rtl"] .governance-card {
-  border-left: 1px solid #E2E8F0;
+  border-left: 1px solid #BAE6FD;
   border-right: 4px solid #0284C7;
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  border-radius: 12px;
 }
 
 [dir="rtl"] .hero-breadcrumb {
@@ -56,23 +56,53 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
+/* Mobile Drawer RTL */
 [dir="rtl"] .mobile-nav-drawer {
-  transform: translateX(100%);
+  right: auto;
   left: 0;
-  right: 0;
+  transform: translateX(-100%);
+  box-shadow: 10px 0 35px rgba(15, 23, 42, 0.18);
 }
 
 [dir="rtl"] .mobile-nav-drawer.open {
   transform: translateX(0);
 }
 
-[dir="rtl"] .mobile-nav-links .nav-link {
-  border-left: none;
-  border-right: 3px solid transparent;
+[dir="rtl"] .drawer-header {
+  flex-direction: row-reverse;
 }
 
-[dir="rtl"] .mobile-nav-links .nav-link.active {
-  border-right-color: #B91C1C;
+[dir="rtl"] .drawer-brand {
+  flex-direction: row;
+}
+
+[dir="rtl"] .drawer-brand .brand-info {
+  text-align: right;
+}
+
+[dir="rtl"] .mobile-nav-item .item-arrow svg,
+[dir="rtl"] .mobile-nav-links .nav-link .item-arrow svg {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .mobile-nav-item:hover .item-arrow,
+[dir="rtl"] .mobile-nav-links .nav-link:hover .item-arrow {
+  transform: translateX(-3px);
+}
+
+[dir="rtl"] .drawer-quote-btn,
+[dir="rtl"] .mobile-nav-cta .btn-primary {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .drawer-quote-btn .arrow-circle svg,
+[dir="rtl"] .mobile-nav-cta .btn-primary svg {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .drawer-location-tag {
+  direction: rtl;
+  text-align: right;
 }
 
 [dir="rtl"] .brand-info {
