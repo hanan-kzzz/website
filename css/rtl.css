@@ -371,3 +371,28 @@ body.rtl-layout .fab-btn:focus-visible .fab-tooltip {
     right: auto;
   }
 }
+
+/* RTL Corporate Profile & About Enhancements */
+[dir="rtl"] .metric-item {
+  border-right: none;
+  border-left: 1px solid #E2E8F0;
+}
+
+[dir="rtl"] .metric-item:last-child {
+  border-left: none;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .metric-item:nth-child(2) {
+    border-left: none;
+  }
+}
+
+[dir="rtl"] .about-feature-item:hover {
+  transform: translateX(-4px);
+}
+
+[dir="rtl"] .about-feature-icon {
+  margin-left: 0;
+  margin-right: 0;
+}

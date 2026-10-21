@@ -185,6 +185,36 @@
       text-decoration: none;
     }
   </style>
+  <!-- Bulletproof Inline SVG Containment (prevents icon blowout under any network or stylesheet loading state) -->
+  <style>
+    svg {
+      max-width: 100%;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    svg:not([width]) {
+      width: 20px;
+      height: 20px;
+      max-width: 24px;
+      max-height: 24px;
+    }
+    .arrow-circle svg, .cta-arrow-circle svg, .quote-arrow-circle svg {
+      width: 12px !important;
+      height: 12px !important;
+    }
+    .search-icon {
+      width: 18px !important;
+      height: 18px !important;
+    }
+    .cta-feature-item svg, .about-feature-item svg {
+      width: 16px !important;
+      height: 16px !important;
+    }
+    .mobile-toggle svg {
+      width: 22px !important;
+      height: 22px !important;
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">

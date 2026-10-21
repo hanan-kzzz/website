@@ -6,3 +6,9 @@ Thumbs.db
 !.env.example
 .vscode/
 .idea/
+
+# Other local project folders (excluded from this website repository)
+bdsn-club/
+metals-and-fibres-animated/
+metals-and-fibres-website/
+

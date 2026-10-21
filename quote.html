@@ -6,14 +6,44 @@
   <title>Request a Quotation (RFQ) | Gulf Fiber and Metal Company Limited</title>
   <meta name="description" content="Request an itemized B2B engineering quotation for GRP cladding, pillar covers, 3D facades, water tanks, and custom composite fabrication in Saudi Arabia.">
 
-  <!-- Google Fonts: Inter & IBM Plex Sans Arabic -->
+  <!-- Google Fonts: Inter, Plus Jakarta Sans & IBM Plex Sans Arabic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/rtl.css">
+  <!-- Bulletproof Inline SVG Containment (prevents icon blowout under any network or stylesheet loading state) -->
+  <style>
+    svg {
+      max-width: 100%;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    svg:not([width]) {
+      width: 20px;
+      height: 20px;
+      max-width: 24px;
+      max-height: 24px;
+    }
+    .arrow-circle svg, .cta-arrow-circle svg, .quote-arrow-circle svg {
+      width: 12px !important;
+      height: 12px !important;
+    }
+    .search-icon {
+      width: 18px !important;
+      height: 18px !important;
+    }
+    .cta-feature-item svg, .about-feature-item svg {
+      width: 16px !important;
+      height: 16px !important;
+    }
+    .mobile-toggle svg {
+      width: 22px !important;
+      height: 22px !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -45,11 +75,11 @@
         <a href="quote.html" class="btn-header-quote">
           <span data-i18n="requestQuoteNav">Request a Quote</span>
           <span class="arrow-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </span>
         </a>
         <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
     </div>
